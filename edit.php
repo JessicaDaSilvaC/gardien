@@ -32,7 +32,7 @@
 
     if(count($_POST) >  0){
         if(strlen(trim($_POST['date'])) !==0){
-            $date_chagement = trim($_POST['date']);
+            $date_changement = trim($_POST['date']);
         }else{
             $error = true;
         }
@@ -58,26 +58,27 @@
         }
         //$complement = trim($_POST['complement']);
         if(isset($_POST['edit']) && isset($_POST['id'])){
-            $date_changement = htmlentities($_POST['id']);
+            $id = htmlentities($_POST['id']);
         }
 //Insertion dans la base de donnée, si aucune erreur
         if($error === false){
             if(isset($_POST['edit']) && isset($_POST['id'])){
 //Mise à jour de la base de donnée
-                $sql = 'UPDATE gardien SET date_changement=:date_changement, etage=:etage, position=:position, puissance=:puissance, marque=:marque WHERE id = :id';
+            $sql = 'UPDATE gardien SET date_changement=:date_changement, etage=:etage, position=:position, puissance=:puissance, marque=:marque WHERE id = :id';
             }else{
 //Isertion des valeurs dans la base de donnée
-                $sql = "INSERT INTO gardien(date_changement,etage,position,puissance,marque) VALUES('$date_chagement','$etage','$position','$puissance','$marque')";
+                $sql = "INSERT INTO gardien(date_changement,etage,position,puissance,marque) VALUES(:date_changement,:etage,:position,:puissance,:marque)";
             } 
+            var_dump($date_changement);
             $sth = $dbh->prepare($sql);
 //Protèction de la database d'injetion sql
-            $sth->bindParam(':date',strftime("%Y-%m-%d", strtotime($date_changement)), PDO::PARAM_STR);
+            $sth->bindValue(':date_changement',strftime("%Y-%m-%d", strtotime($date_changement)), PDO::PARAM_STR);
             $sth->bindParam(':etage',$etage, PDO::PARAM_STR);
             $sth->bindParam(':position',$position, PDO::PARAM_STR);
             $sth->bindParam(':puissance',$puissance, PDO::PARAM_STR);
             $sth->bindParam(':marque',$marque, PDO::PARAM_STR);
-            if(isset($_POST[':edit']) && isset($_POST['id'])){
-                $sth->bindParam('id',$id, PDO::PARAAM_INT);
+            if(isset($_POST['edit']) && isset($_POST['id'])){
+                $sth->bindParam(':id',$id, PDO::PARAM_INT);
             }
             $sth->execute();
 //Redirection après insertion
