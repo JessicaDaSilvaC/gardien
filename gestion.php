@@ -11,6 +11,7 @@
 <body>   
     <h1>Suivi changement d'ampoule </h1>
     <p><a href="edit.php">Ajouter</a></p>
+    <p><a href ="deco.php"> Déconnexion </a></p>
     <table>
         <tr>
             <th>Date</th>
