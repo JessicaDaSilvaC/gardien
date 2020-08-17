@@ -1,3 +1,4 @@
+
 <?php
     define('DATABASE', 'gardien');
     define('USER', 'root');

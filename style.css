@@ -6,8 +6,7 @@ body{
     margin:0 auto;
     margin-top:10%;
 }
-/* Bordered form */
-form {
+form{
     width:100%;
     padding: 30px;
     border: 1px solid #f1f1f1;
@@ -15,12 +14,10 @@ form {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #container h1{
-    width: 38%;
+    text-align: center;
     margin: 0 auto;
     padding-bottom: 10px;
 }
-
-/* Full-width inputs */
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -29,9 +26,7 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
-/* Set a style for all buttons */
-input[type=submit] {
+input[type=submit]{
     background-color: #53af57;
     color: white;
     padding: 14px 20px;
@@ -41,6 +36,60 @@ input[type=submit] {
     width: 100%;
 }
 input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+}
+.cadre{
+    width: 500px;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.lien{
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    outline: none;
+    text-decoration: none;
+    color: green;
+    font-size: 18px;
+}
+table{
+    border: 3px solid green;
+    table-layout: auto;
+    width: 100%;
+}
+input[type=text]{
+    padding: 10px 2px;
+    margin: 2px 0;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=date]{
+    padding: 10px 2px;
+    margin: 2px 0;
+    cursor: pointer;
+    width: 24%;
+}
+select{
+    padding: 10px 2px;
+    margin: 2px 0;
+    cursor: pointer;
+    width: 25%;
+}
+.modif{
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.modif:hover {
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;

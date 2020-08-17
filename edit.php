@@ -91,6 +91,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
     <?php 
         if(isset($_GET['id']) && isset($_GET['edit'])){
             echo'<title>Modifier des informations</title>';
@@ -99,34 +100,39 @@
         }
     ?>
 </head>
-<body>
+<body id="container">
     <?php
         if(isset($_GET['id']) && isset($_GET['edit'])){
             echo'<h1>Modifier des informations</h1>';
         }   else{
-            echo"<h1>Ajouter un changement d'ampoule</h1>";
+            echo"<h1>Ajouter un changement</h1>";
         }
     ?>
     <div>
-        <form action="edit.php" method="post">
+        <form action="edit.php" method="post" class="cadre">
             <div>
-                <input type="date" name="date" id="date" placeholder="date" value="<?= strftime("%Y-%m-%d", strtotime($date_changement)); ?>">
+                <input type="date" name="date" id="date" placeholder="date" value="<?php
+                if($date_changement == ""){
+                    echo strftime("%Y-%m-%d", strtotime("now"));
+                } else {
+                    echo strftime("%Y-%m-%d", strtotime($date_changement));
+                }?>">
             </div>
             <div>
                 <select name='etage' size='l'>
                     <option>Étage
                     <option <?php if($etage == 'Rez de chaussé') echo 'selected'; ?>>Rez de chaussé
-                    <option <?php if($etage == '1er étage') echo 'selected'; ?>>1er étage
-                    <option <?php if($etage == '2ème étage') echo 'selected'; ?>>2ème étage
-                    <option <?php if($etage == '3ème étage') echo 'selected'; ?>>3ème étage
-                    <option <?php if($etage == '4ème étage') echo 'selected'; ?>>4ème étage
-                    <option <?php if($etage == '5ème étage') echo 'selected'; ?>>5ème étage
-                    <option <?php if($etage == '6ème étage') echo 'selected'; ?>>6ème étage
-                    <option <?php if($etage == '7ème étage') echo 'selected'; ?>>7ème étage
-                    <option <?php if($etage == '8ème étage') echo 'selected'; ?>>8ème étage
-                    <option <?php if($etage == '9ème étage') echo 'selected'; ?>>9ème étage
-                    <option <?php if($etage == '10ème étage') echo 'selected'; ?>>10ème étage
-                    <option <?php if($etage == '11ème étage') echo 'selected'; ?>>11ème étage
+                    <option <?php if($etage == '1er') echo 'selected'; ?>>1er
+                    <option <?php if($etage == '2ème') echo 'selected'; ?>>2ème
+                    <option <?php if($etage == '3ème') echo 'selected'; ?>>3ème
+                    <option <?php if($etage == '4ème') echo 'selected'; ?>>4ème
+                    <option <?php if($etage == '5ème') echo 'selected'; ?>>5ème
+                    <option <?php if($etage == '6ème') echo 'selected'; ?>>6ème
+                    <option <?php if($etage == '7ème') echo 'selected'; ?>>7ème
+                    <option <?php if($etage == '8ème') echo 'selected'; ?>>8ème
+                    <option <?php if($etage == '9ème') echo 'selected'; ?>>9ème
+                    <option <?php if($etage == '10ème') echo 'selected'; ?>>10ème
+                    <option <?php if($etage == '11ème') echo 'selected'; ?>>11ème
                 </select>
             </div>
             <div>
@@ -160,7 +166,7 @@
                 }
             ?>
             <div>
-                <button type="submit"><?=$texteButton ?></button>
+                <button type="submit" class="modif"><?=$texteButton ?></button>
             </div>
             <?php 
                 if(isset($_GET['id'])&& isset($_GET['edit'])){

@@ -6,12 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
     <title>Suivis changement d'ampoule</title>
 </head>
-<body>   
+<body>
+<div id="container">
+    <div class="cadre">
     <h1>Suivi changement d'ampoule </h1>
-    <p><a href="edit.php">Ajouter</a></p>
-    <p><a href ="deco.php"> Déconnexion </a></p>
+    <div class="lien">
+        <p><a href="edit.php">Ajouter</a></p>
+        <p><a href ="deco.php"> Déconnexion </a></p>
+    </div>
     <table>
         <tr>
             <th>Date</th>
@@ -34,12 +39,13 @@
 //Boucle pour parcourir toutes les lignes
             foreach($datas as $data){
                 echo'<tr>';
-                    echo '<td>' .$data['date_changement']. '</td>';
-                    echo '<td>' .$data['etage']. '</td>';
-                    echo '<td>' .$data['position']. '</td>';
-                    echo '<td>' .$data['puissance']. '</td>';
-                    echo '<td>' .$data['marque']. '</td>';
-                    echo '<td><a href="edit.php?edit=1&id='.$data['id'].'">Modifier</a> <a href="delete.php?id='.$data['id'].'">Supprimer<a><td>';
+                    echo '<th>' .strftime("%d-%m-%Y", strtotime($data['date_changement'])). '</th>';
+                    echo '<th>' .$data['etage']. '</th>';
+                    echo '<th>' .$data['position']. '</th>';
+                    echo '<th>' .$data['puissance']. '</th>';
+                    echo '<th>' .$data['marque']. '</th>';
+                    echo '<th><a href="edit.php?edit=1&id='.$data['id'].'">Modifier</a></th>';
+                    echo '<th><a href="delete.php?id='.$data['id'].'">Supprimer<a><th>';
                 echo '</tr>';
             }
         ?>
@@ -51,5 +57,6 @@
             echo"<p>Aucun changement d'ampoule</p>";
         }
     ?>
+</div>
 </body>
 </html>

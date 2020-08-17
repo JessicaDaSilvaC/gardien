@@ -1,22 +1,12 @@
-<?php 
-    /*session_start();
-    if ($_SESSION["username"] == false);
-    {
-        echo"<script>alert(\"l'identifiant ou le mot de passe est incorrect\")</script>";
-    }*/
-?>
 <html>
     <head>
        <meta charset="utf-8">
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <div id="container">
-            <!-- zone de connexion -->
-            
+        <div id="container">            
             <form action="verification.php" method="POST">
-                <h1>Connexion</h1>
-                
+                <h1>Connexion</h1>                
                 <label><b>Nom d'utilisateur</b></label>
                 <input type="text" placeholder="Gardien" name="username" required>
 
