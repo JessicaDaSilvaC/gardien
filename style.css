@@ -89,8 +89,20 @@ select{
     cursor: pointer;
     width: 100%;
 }
-.modif:hover {
+.modif:hover{
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;
+}
+th, td{
+    background: none;
+}
+tr{
+    height: 45px;
+}
+tr:nth-child(even){
+    background-color: lightgreen;
+}
+tr:nth-child(odd){
+    background-color: lightgrey;
 }

@@ -24,6 +24,9 @@
             <th>Position</th>
             <th>Puissance</th>
             <th>Marque</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
         <?php
 //Préparation de requête
@@ -39,13 +42,13 @@
 //Boucle pour parcourir toutes les lignes
             foreach($datas as $data){
                 echo'<tr>';
-                    echo '<th>' .strftime("%d-%m-%Y", strtotime($data['date_changement'])). '</th>';
-                    echo '<th>' .$data['etage']. '</th>';
-                    echo '<th>' .$data['position']. '</th>';
-                    echo '<th>' .$data['puissance']. '</th>';
-                    echo '<th>' .$data['marque']. '</th>';
-                    echo '<th><a href="edit.php?edit=1&id='.$data['id'].'">Modifier</a></th>';
-                    echo '<th><a href="delete.php?id='.$data['id'].'">Supprimer<a><th>';
+                    echo '<td>' .strftime("%d-%m-%Y", strtotime($data['date_changement'])). '</td>';
+                    echo '<td>' .$data['etage']. '</td>';
+                    echo '<td>' .$data['position']. '</td>';
+                    echo '<td>' .$data['puissance']. '</td>';
+                    echo '<td>' .$data['marque']. '</td>';
+                    echo '<td><a href="edit.php?edit=1&id='.$data['id'].'">Modifier</a></td>';
+                    echo '<td><a href="delete.php?id='.$data['id'].'">Supprimer<a><td>';
                 echo '</tr>';
             }
         ?>
